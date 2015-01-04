@@ -2714,9 +2714,14 @@ static void __sched_fork(struct task_struct *p)
 	INIT_HLIST_HEAD(&p->preempt_notifiers);
 #endif
 
-	//+ RTS Proj2: simple_rr
+	//+ RTS Proj2 phase1: simple_rr
+	//INIT_LIST_HEAD(&p->simple_rr_list_item);
+	//p->task_time_slice = simple_rr_time_slice;
+
+	//+ RTS Proj2 phase2: simple_rr
 	INIT_LIST_HEAD(&p->simple_rr_list_item);
-	p->task_time_slice = simple_rr_time_slice;
+	p->weighted_time_slice = simple_rr_time_slice;
+	p->task_time_slice = p->weighted_time_slice;
 }
 
 /*

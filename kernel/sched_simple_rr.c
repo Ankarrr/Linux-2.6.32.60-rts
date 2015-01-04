@@ -193,7 +193,8 @@ static void task_tick_simple_rr(struct rq *rq, struct task_struct *p,int queued)
 	if (--p->task_time_slice)
 		return
 	
-	p->task_time_slice = simple_rr_time_slice;	
+	//p->task_time_slice = simple_rr_time_slice;	
+	p->task_time_slice = p->weighted_time_slice;	
 
 	requeue_task_simple_rr(rq, p);
 	set_tsk_need_resched(p);

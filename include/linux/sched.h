@@ -1261,6 +1261,7 @@ struct task_struct {
 	cpumask_t cpus_allowed;
 	//+ RTS Proj2: simple_rr
 	unsigned int task_time_slice;
+	unsigned int weighted_time_slice;
 
 #ifdef CONFIG_TREE_PREEMPT_RCU
 	int rcu_read_lock_nesting;
